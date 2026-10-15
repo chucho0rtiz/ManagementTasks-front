@@ -1,0 +1,51 @@
+.requests-page {
+  display: block;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 48px 16px;
+  background: #fff;
+  border-radius: 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.state mat-icon {
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+}
+
+.state-error {
+  color: #c62828;
+}
+
+@media (max-width: 600px) {
+  .page-header {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>{{ request.title }}</h2>
+
+<mat-dialog-content class="detail">
+  <div class="chips">
+    <span class="status-chip" [class]="statusClass(request.status)">{{
+      statusLabels[request.status]
+    }}</span>
+    <span class="status-chip" [class]="priorityClass(request.priority)">{{
+      priorityLabels[request.priority]
+    }}</span>
+  </div>
+
+  <div class="days-banner" [class.cerrada]="estaCerrada()">
+    <mat-icon>{{ estaCerrada() ? "event_available" : "schedule" }}</mat-icon>
+    <span>
+      <strong>{{ diasAbierto() }}</strong>
+      {{ diasTexto() }}
+    </span>
+  </div>
+
+  <div class="detail-grid">
+    <div class="row">
+      <span class="label">Solicitante</span>
+      <span>{{ request.requesterName }}</span>
+    </div>
+    <div class="row">
+      <span class="label">Técnico</span>
+      <span>{{ request.technician.fullName }}</span>
+    </div>
+    <div class="row">
+      <span class="label">Tipo de servicio</span>
+      <span>{{ request.serviceType.name }}</span>
+    </div>
+    <div class="row">
+      <span class="label">Creado</span>
+      <span>{{ request.createdAt | date: "dd/MM/yyyy HH:mm" }}</span>
+    </div>
+    <div class="row">
+      <span class="label">Última actualización</span>
+      <span>{{ request.updatedAt | date: "dd/MM/yyyy HH:mm" }}</span>
+    </div>
+  </div>
+
+  <div class="description">
+    <span class="label">Descripción</span>
+    <p [class.muted]="!request.description">
+      {{ request.description || "Sin descripción" }}
+    </p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

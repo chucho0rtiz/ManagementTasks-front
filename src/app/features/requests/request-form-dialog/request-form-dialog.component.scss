@@ -1,0 +1,22 @@
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 320px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    min-width: 0;
+  }
+}

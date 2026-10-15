@@ -1,0 +1,103 @@
+.detail {
+  min-width: 360px;
+}
+
+.chips {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.days-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #e3f2fd;
+  color: #0d47a1;
+  margin-bottom: 16px;
+}
+
+.days-banner.cerrada {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.days-banner strong {
+  font-size: 20px;
+  margin-right: 2px;
+}
+
+.detail-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 8px;
+}
+
+.label {
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 500;
+}
+
+.description {
+  margin-top: 16px;
+}
+
+.description p {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.muted {
+  color: rgba(0, 0, 0, 0.4);
+  font-style: italic;
+}
+
+/* Chips de estado y prioridad. */
+.status-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.chip-pending {
+  background: #fff3e0;
+  color: #e65100;
+}
+.chip-in_progress {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.chip-completed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.chip-cancelled {
+  background: #fbe9e7;
+  color: #c62828;
+}
+.chip-low {
+  background: #eceff1;
+  color: #455a64;
+}
+.chip-medium {
+  background: #fff8e1;
+  color: #f9a825;
+}
+.chip-high {
+  background: #ffebee;
+  color: #c62828;
+}

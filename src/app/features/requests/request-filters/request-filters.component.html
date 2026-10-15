@@ -1,0 +1,47 @@
+<form [formGroup]="form" class="filters" (submit)="$event.preventDefault()">
+  <mat-form-field appearance="outline" class="filters-search">
+    <mat-label>Buscar</mat-label>
+    <input
+      matInput
+      formControlName="q"
+      placeholder="Título, descripción o solicitante"
+      aria-label="Buscar solicitudes"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Estado</mat-label>
+    <mat-select formControlName="status" aria-label="Filtrar por estado">
+      <mat-option value="">Todos</mat-option>
+      @for (opt of statusOptions; track opt.value) {
+        <mat-option [value]="opt.value">{{ opt.label }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Técnico</mat-label>
+    <mat-select formControlName="technicianId" aria-label="Filtrar por técnico">
+      <mat-option value="">Todos</mat-option>
+      @for (t of technicians(); track t.id) {
+        <mat-option [value]="t.id">{{ t.fullName }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo de servicio</mat-label>
+    <mat-select formControlName="serviceTypeId" aria-label="Filtrar por tipo de servicio">
+      <mat-option value="">Todos</mat-option>
+      @for (s of serviceTypes(); track s.id) {
+        <mat-option [value]="s.id">{{ s.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-stroked-button type="button" (click)="clear()" class="filters-clear">
+    <mat-icon>filter_alt_off</mat-icon>
+    Limpiar
+  </button>
+</form>

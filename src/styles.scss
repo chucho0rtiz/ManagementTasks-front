@@ -1,0 +1,48 @@
+/* Tema global de Angular Material + tipografía (design.md: UI = Angular Material). */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+body {
+  background: #f4f6f8;
+}
+
+/* Estados del snackbar (RE-3): verde éxito, rojo error, ámbar aviso. */
+.snackbar-success .mdc-snackbar__surface {
+  background: #2e7d32 !important;
+}
+.snackbar-success .mdc-snackbar__label,
+.snackbar-success .mdc-button {
+  color: #fff !important;
+}
+
+.snackbar-error .mdc-snackbar__surface {
+  background: #c62828 !important;
+}
+.snackbar-error .mdc-snackbar__label,
+.snackbar-error .mdc-button {
+  color: #fff !important;
+}
+
+.snackbar-warning .mdc-snackbar__surface {
+  background: #ef6c00 !important;
+}
+.snackbar-warning .mdc-snackbar__label,
+.snackbar-warning .mdc-button {
+  color: #fff !important;
+}
+
+/* Utilidades reutilizables. */
+.full-width {
+  width: 100%;
+}
+
+.text-muted {
+  color: rgba(0, 0, 0, 0.54);
+}

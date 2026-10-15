@@ -1,0 +1,46 @@
+<section class="requests-page">
+  <header class="page-header">
+    <div>
+      <h1>Solicitudes de servicio TI</h1>
+      <p class="subtitle">Gestiona y asigna solicitudes a los técnicos.</p>
+    </div>
+    <button mat-flat-button color="primary" type="button" (click)="openCreateDialog()">
+      <mat-icon>add</mat-icon>
+      Nueva solicitud
+    </button>
+  </header>
+
+  <app-request-filters
+    [filters]="filters()"
+    [technicians]="technicians()"
+    [serviceTypes]="serviceTypes()"
+    (filtersChange)="onFiltersChange($event)"
+  ></app-request-filters>
+
+  @if (loading()) {
+    <div class="state state-loading">
+      <mat-spinner diameter="44"></mat-spinner>
+      <span>Cargando solicitudes…</span>
+    </div>
+  } @else if (error()) {
+    <div class="state state-error">
+      <mat-icon>error_outline</mat-icon>
+      <p>{{ error() }}</p>
+      <button mat-stroked-button color="primary" type="button" (click)="loadRequests()">
+        Reintentar
+      </button>
+    </div>
+  } @else {
+    <app-request-list
+      [requests]="requests()"
+      [total]="meta()?.total ?? 0"
+      [pageIndex]="(meta()?.page ?? 1) - 1"
+      [pageSize]="meta()?.pageSize ?? 10"
+      (view)="openDetailDialog($event)"
+      (edit)="openEditDialog($event)"
+      (remove)="confirmDelete($event)"
+      (statusChange)="onStatusChange($event)"
+      (pageChange)="onPageChange($event)"
+    ></app-request-list>
+  }
+</section>

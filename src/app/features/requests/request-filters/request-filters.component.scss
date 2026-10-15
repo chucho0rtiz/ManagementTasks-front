@@ -1,0 +1,27 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.filters mat-form-field {
+  min-width: 180px;
+  flex: 0 1 auto;
+}
+
+.filters-search {
+  flex: 1 1 260px;
+}
+
+.filters-clear {
+  height: 56px;
+  margin-top: 1px;
+}
+
+@media (max-width: 600px) {
+  .filters mat-form-field {
+    min-width: 100%;
+  }
+}

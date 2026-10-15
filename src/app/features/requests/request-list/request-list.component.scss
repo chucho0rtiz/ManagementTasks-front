@@ -1,0 +1,73 @@
+.list-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.requests-table {
+  width: 100%;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.state-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 48px 16px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.state-empty mat-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+/* Chips de estado y prioridad (presentación). */
+.status-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.chip-pending {
+  background: #fff3e0;
+  color: #e65100;
+}
+.chip-in_progress {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+.chip-completed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+.chip-cancelled {
+  background: #fbe9e7;
+  color: #c62828;
+}
+
+.chip-low {
+  background: #eceff1;
+  color: #455a64;
+}
+.chip-medium {
+  background: #fff8e1;
+  color: #f9a825;
+}
+.chip-high {
+  background: #ffebee;
+  color: #c62828;
+}

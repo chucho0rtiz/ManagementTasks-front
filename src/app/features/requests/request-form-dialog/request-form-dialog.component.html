@@ -1,0 +1,69 @@
+<h2 mat-dialog-title>{{ title }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="form-grid" (submit)="$event.preventDefault()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" maxlength="100" required />
+      <mat-error>{{ fieldError("title") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Solicitante</mat-label>
+      <input matInput formControlName="requesterName" maxlength="100" required />
+      <mat-error>{{ fieldError("requesterName") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descripción (opcional)</mat-label>
+      <textarea matInput formControlName="description" maxlength="1000" rows="3"></textarea>
+      <mat-error>{{ fieldError("description") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Técnico</mat-label>
+      <mat-select formControlName="technicianId" required>
+        @for (t of technicians; track t.id) {
+          <mat-option [value]="t.id">{{ t.fullName }}</mat-option>
+        }
+      </mat-select>
+      <mat-error>{{ fieldError("technicianId") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo de servicio</mat-label>
+      <mat-select formControlName="serviceTypeId" required>
+        @for (s of serviceTypes; track s.id) {
+          <mat-option [value]="s.id">{{ s.name }}</mat-option>
+        }
+      </mat-select>
+      <mat-error>{{ fieldError("serviceTypeId") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Prioridad</mat-label>
+      <mat-select formControlName="priority">
+        @for (p of priorities; track p.value) {
+          <mat-option [value]="p.value">{{ p.label }}</mat-option>
+        }
+      </mat-select>
+      <mat-error>{{ fieldError("priority") }}</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="cancel()" [disabled]="saving()">Cancelar</button>
+  <button
+    mat-flat-button
+    color="primary"
+    type="button"
+    (click)="submit()"
+    [disabled]="form.invalid || form.pristine || saving()"
+  >
+    @if (saving()) {
+      <mat-spinner diameter="18" class="btn-spinner"></mat-spinner>
+    }
+    {{ isEdit ? "Guardar cambios" : "Crear solicitud" }}
+  </button>
+</mat-dialog-actions>
